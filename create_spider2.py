@@ -1,5 +1,6 @@
 import argparse
-from solid.utils import *
+from solid. utilsimport *
+
 
 def create_spider(args):
     w_body = args.get('w_body')
@@ -28,14 +29,12 @@ def create_spider(args):
     leg_p2 = rotate(a=120, v=(0, -1, 0))(color(BlackPaint)(leg2_cyl))
     leg3_cyl = cylinder(r=1, h=leg_length*5/12, center=True)
     leg_p3 = rotate(a=0, v=(-1, -1, 1))(color(BlackPaint)(leg3_cyl))
-    
     leg1_cyl = cylinder(r=1, h=leg_length/4, center=True)
     leg_p1 = rotate(a=120, v=(1, -1, -1))(color(BlackPaint)(leg1_cyl))
     leg2_cyl = cylinder(r=1, h=leg_length/3, center=True)
     leg_p2 = rotate(a=120, v=(0, -1, 0))(color(BlackPaint)(leg2_cyl))
     leg3_cyl = cylinder(r=1, h=leg_length*5/12, center=True)
     leg_p3 = rotate(a=0, v=(-1, -1, 1))(color(BlackPaint)(leg3_cyl))
-    
     leg_p2l = rotate(a=120, v=(0, 1, 0))(color(BlackPaint)(leg2_cyl))
 
     rleg1_p1 = forward(leg14_fb)(right(leg_p1_so)(down(leg_p1_d)(leg_p1)))
@@ -85,11 +84,20 @@ def create_spider(args):
     scad_render_to_file(spider, './file_out.scad')
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Please specify body measurements and leg length')
-    parser.add_argument('w_body', metavar='w_body', type=int, nargs='?', default=10, help='body height')
-    parser.add_argument('h_body', metavar='h_body', type=int, nargs='?', default=7, help='body width')
-    parser.add_argument('l_body', metavar='l_body', type=int, nargs='?', default=20, help='body length')
-    parser.add_argument('leg_length', metavar='leg_length', type=int, nargs='?', default=20, help='leg length')
+    parser = argparse.ArgumentParser(description='Please specify \
+        body measurements and leg length')
+    parser.add_argument(
+        'w_body', metavar='w_body', type=int, nargs='?', default=10,
+        help='body height')
+    parser.add_argument(
+        'h_body', metavar='h_body', type=int, nargs='?', default=7,
+        help='body width')
+    parser.add_argument(
+        'l_body', metavar='l_body', type=int, nargs='?', default=20,
+        help='body length')
+    parser.add_argument(
+        'leg_length', metavar='leg_length', type=int, nargs='?',
+        default=20, help='leg length')
     args = parser.parse_args()
 
     create_spider(vars(args))
