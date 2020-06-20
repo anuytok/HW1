@@ -83,6 +83,7 @@ def create_spider(args):
     spider = cube_main + sphere_back + left_legs + right_legs
     scad_render_to_file(spider, './file_out.scad')
 
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Please specify \
         body measurements and leg length')
